@@ -1,0 +1,26 @@
+{
+  "name": "electron-quick-start-with-flask",
+  "version": "0.0.1",
+  "description": "A minimal Electron application with Flask server",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/minwook-shin/electron-quick-start-with-flask.git",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "python",
+    "flask"
+  ],
+  "author": "minwook-shin",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.1.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.3"
+  }
+}
