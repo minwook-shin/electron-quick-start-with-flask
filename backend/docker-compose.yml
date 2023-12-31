@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+    api:
+        build:
+            context: .
+            dockerfile: Dockerfile.python
+        container_name: api
+        restart: always
+        expose:
+            - 5000:5000
+
+    nginx:
+        build:
+            context: .
+            dockerfile: Dockerfile.nginx
+        container_name: nginx
+        restart: always
+        ports:
+            - "80:80"

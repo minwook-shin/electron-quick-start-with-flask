@@ -3,7 +3,7 @@ const axios = require('axios')
 const path = require('node:path')
 
 async function fetchPythonVersion() {
-  const response = await axios.get('http://127.0.0.1:5555/python-version')
+  const response = await axios.get('http://127.0.0.1/python-version')
   return response.data
 }
 
