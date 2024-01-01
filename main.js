@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, MenuItem } = require('electron')
+const { app, BrowserWindow, Menu, MenuItem, Notification } = require('electron')
 const axios = require('axios')
 const path = require('node:path')
 
@@ -33,7 +33,7 @@ app.whenReady().then(() => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })
 
-})
+}).then(showNotification)
 
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
@@ -50,3 +50,10 @@ menu.append(new MenuItem({
 }))
 
 Menu.setApplicationMenu(menu)
+
+const NOTIFICATION_TITLE = 'electron-quick-start-with-flask'
+const NOTIFICATION_BODY = 'Notification body'
+
+function showNotification() {
+  new Notification({ title: NOTIFICATION_TITLE, body: NOTIFICATION_BODY }).show()
+}
