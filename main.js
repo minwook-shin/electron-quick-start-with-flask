@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, Menu, MenuItem } = require('electron')
 const axios = require('axios')
 const path = require('node:path')
 
@@ -38,3 +38,15 @@ app.whenReady().then(() => {
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
+
+const menu = new Menu()
+menu.append(new MenuItem({
+  label: 'Electron',
+  submenu: [{
+    role: 'help',
+    accelerator: process.platform === 'darwin' ? 'Alt+Cmd+H' : 'Alt+Shift+H',
+    click: () => { console.log('Electron hello world!') }
+  }]
+}))
+
+Menu.setApplicationMenu(menu)
