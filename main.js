@@ -22,7 +22,9 @@ function createWindow() {
   // mainWindow.webContents.openDevTools()
   fetchPythonVersion().then(data => {
     mainWindow.webContents.send('py-version', data)
-  })
+  }).catch(err => {
+    mainWindow.webContents.send('py-version', " not found")
+  } )
 
 }
 
